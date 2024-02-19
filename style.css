@@ -85,3 +85,7 @@ main {
   background-color: black;
   box-shadow: inset 0px 0px 4px grey;
 }
+
+.dragging {
+  opacity: 0.2;
+}

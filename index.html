@@ -5,19 +5,21 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <script src="/main.js" defer></script>
+
     <title>drag n drop vanilla</title>
   </head>
   <body>
     <main>
-      <div class="one" data-theme="drag" draggable="true"></div>
-      <div class="two" data-theme="drag" draggable="true"></div>
-      <div class="three" data-theme="drag" draggable="true"></div>
-      <div class="four" data-theme="drag" draggable="true"></div>
-      <div class="five" data-theme="drag" draggable="true"></div>
-      <section class="" dropzone_wrap>
-        <div class="dropzone" data-theme="drop"></div>
+      <section class="dropzone" data-theme="drop">
+        <div class="one" data-theme="drag" draggable="true"></div>
+        <div class="two" data-theme="drag" draggable="true"></div>
+        <div class="three" data-theme="drag" draggable="true"></div>
+        <div class="four" data-theme="drag" draggable="true"></div>
+        <div class="five" data-theme="drag" draggable="true"></div>
       </section>
+      <section class="dropzone" data-theme="drop"></section>
+
+      <script src="./main.js"></script>
     </main>
   </body>
 </html>
