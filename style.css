@@ -16,6 +16,21 @@ body {
   background: rgb(33, 33, 33);
 }
 
+main {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  min-width: 78%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: rgb(32, 32, 32);
+}
+
 .one,
 .two,
 .three,
@@ -62,4 +77,11 @@ body {
 }
 .five:after {
   content: 'five';
+}
+
+.dropzone {
+  width: 25vw;
+  height: 45vh;
+  background-color: black;
+  box-shadow: inset 0px 0px 4px grey;
 }
