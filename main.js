@@ -16,9 +16,17 @@ draggable.forEach((item) => {
 
 /* :::: drop zone :::: */
 dropZone.forEach((item) => {
-    item.addEventListener('dragover', () => {
-        console.log('over');
+    item.addEventListener('dragover', (event) => {
+        event.preventDefault()
         const dragged = document.querySelector('.dragging');
         item.appendChild(dragged)
     })
 });
+
+/** :::: handling the abilitiy to drop the items individually 
+ * using :not() pseudo class selector:: */
+function getActualDraggedItem(dragged, mousePosition) {
+
+    const currentDraggedItem = [...document.querySelector('[data-theme="drag"]:not(.dragging)')];
+
+}
