@@ -35,6 +35,8 @@ dropZone.forEach((target) => {
     })
 });
 
+
+
 /** :::: handling the abilitiy to drop the items individually 
  * using :not() pseudo class selector:: */
 function getCurrentDraggedItem(dropZone, yPosition) {
@@ -55,9 +57,7 @@ function getCurrentDraggedItem(dropZone, yPosition) {
         console.log('box: ', boundingBox);
 
         if (offset < 0 && offset > closest.offset) {
-
             return { offset: offset, element: child };
-
         } else {
             return closest;
         }
