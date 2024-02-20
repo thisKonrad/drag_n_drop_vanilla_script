@@ -17,24 +17,36 @@ all elements are sortable individual by position.
 
 18 - 36:     define the dropzone behaviour:
               attach an dragover event to all"targets" of the both dropzones.
-          22: in the dragover event handler for the target container(our dropZone), we call event.preventDefault(), which enables it to receive drop events.
+          22: in the dragover event handler for the target container(our dropZone), 
+          we call event.preventDefault(), which enables it to receive drop events.
 
-          24: call the function that return the element that is currently dragged with all the needed coordinates like y-position and target offset included.
+          24: call the function that return the element that is currently dragged 
+          with all the needed coordinates like y-position and target offset included.
 
           26: get the current dragged item, its the one with the added classlist of something.
 
-          28: when the element is over an other element the call in 24 returns nothing so the element is dropped at the end.
+          28: when the element is over an other element the call in 
+              24 returns nothing so the element is dropped at the end.
 
           32: elsewhise the element gets inserted befor the element that it is currently before.
 
 42 - 69: main function to get the current position value of the dragged element:
 
-    44: select the actual elements as an array. that are not actually dragged.(all those whithout added class) Use the :not() pseudo class therefore.
+    44: select the actual elements as an array. that are not actually 
+    dragged.(all those whithout added class) Use the :not() pseudo class therefore.
 
-    49: return a reduced value of the selected array in line 44, that overgives the position offset over the not dragged items to the dropzone
+    49: return a reduced value of the selected array in line 44, 
+    that overgives the position offset over the not dragged items to the dropzone
 
     reduce starts at the closest item (closet) where the dragged item is dragged over 
     to the next border of the next item , and there it appends a child (child).
+
+    52: get the size of the child relative to the viewport using the getBoundingClientRect() Method , 
+        this is the boundingBox that sourrounds your dragged child...
+
+    54: get the center of this "boundingBox" at his current Y Position.
+
+    
 
     
     
