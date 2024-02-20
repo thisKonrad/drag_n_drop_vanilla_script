@@ -24,7 +24,7 @@ dropZone.forEach((target) => {
         const afterElement = getCurrentDraggedItem(target, event.clientY);
 
         const dragged = document.querySelector('.dragging');
-        /* when element if over no other element:*/
+        /* when element is over no other element:*/
         if (afterElement == null) {
             target.appendChild(dragged)
         }
