@@ -33,6 +33,8 @@ all elements are sortable individual by position.
 
     49: return a reduced value of the selected array in line 44, that overgives the position offset over the not dragged items to the dropzone
 
+    reduce starts at the closest item (closet) where the dragged item is dragged over to the next border of the next item (child).
+
     
     
 
