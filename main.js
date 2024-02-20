@@ -1,5 +1,5 @@
 /*  :::: main.js :::: */
-const draggable = document.querySelectorAll('.drag');
+const draggable = document.querySelectorAll('[data-theme="drag"]');
 const dropZone = document.querySelectorAll('[data-theme="drop"]');
 
 draggable.forEach((item) => {
@@ -19,10 +19,16 @@ dropZone.forEach((target) => {
     target.addEventListener('dragover', (event) => {
         event.preventDefault();
 
-        const y = getCurrentDraggedItem(target, event.clientY);
-
+        const afterElement = getCurrentDraggedItem(target, event.clientY);
         const dragged = document.querySelector('.dragging');
-        target.appendChild(dragged)
+        /* when element if over no other element:*/
+        if (afterElement === null) {
+            target.appendChild(dragged)
+        }
+        else {
+            target.insertBefore(dragged, afterElement)
+        }
+
     })
 });
 
@@ -30,18 +36,30 @@ dropZone.forEach((target) => {
  * using :not() pseudo class selector:: */
 function getCurrentDraggedItem(dropZone, yPosition) {
 
-    const currentDraggedItem = [...dropZone.querySelectorAll('.drag:not(.dragging)')];
+    const currentDraggedItem = [...dropZone.querySelectorAll('[data-theme="drag"]:not(.dragging)')];
 
     /* :: reduce starts from closest item to next till 
     * (infinity) = border of the pregiven Max.Value
-    * and then append a child the dragged item: */
+    * and then append a child => the dragged item: */
     currentDraggedItem.reduce((closest, child) => {
 
         /*the size of an element and its position relative to the viewport*/
-        const box = child.getBoundingClientRect();
+        const boundingBox = child.getBoundingClientRect();
 
-        console.log('box: ', box)
+        const offset = yPosition - boundingBox.top - boundingBox.height / 2;
 
-    }, { offset: Number.POSITIVE_INFINITY });
+        console.log('center box offset: ', offset);
+
+        console.log('box: ', boundingBox);
+
+        if (offset > 0 && offset > closest.offset) {
+
+            return { offset: offset, element: child };
+
+        } else {
+            return closest;
+        }
+
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
 
 }
