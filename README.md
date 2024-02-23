@@ -1,5 +1,10 @@
 # drag n drop with vanilla script.
 
+This JavaScript code implements a simple drag-and-drop
+functionality for elements with the data-theme="drag"
+attribute, allowing them to be moved and positioned
+within drop zones that have the data-theme="drop" attribute.
+
 goal is to achieve a drag n drop behaviour like this:
 all elements are draggable from one drop-zone to another.
 all elements are sortable from top to bottom.
@@ -15,10 +20,15 @@ addClasslist of something ...
 10 - 15: attach second event to the draggable elements, an dragend. so we can drag from start - end.
 removeClasslist of something ...
 
+//The dragstart event listener adds the 'dragging' class to the element being dragged, visually indicating its selected state.
+The dragend event listener removes the 'dragging' class once the dragging operation is complete.//
+
 18 - 36: define the dropzone behaviour:
 attach an dragover event to all"targets" of the both dropzones.
-22: in the dragover event handler for the target container(our dropZone),
-we call event.preventDefault(), which enables it to receive drop events.
+
+        The dragover event listener prevents the browser's default behavior, allowing the dragged element to be dropped within the drop zone.
+
+Inside the dragover event listener, the code calculates the position of the dragged element relative to the drop zone and inserts the dragged element accordingly:
 
           24: call the function that return the element that is currently dragged
           with all the needed coordinates like y-position and target offset included.
@@ -30,7 +40,15 @@ we call event.preventDefault(), which enables it to receive drop events.
 
           32: elsewhise the element gets inserted befor the element that it is currently before.
 
-42 - 69: main function to get the current position value of the dragged element:
+//The getCurrentDraggedItem function is used to
+determine the correct position for the
+dragged element within the drop zone.
+The getCurrentDraggedItem function calculates the
+vertical position of the dragged
+element relative to the drop zone and returns the
+element that should be placed
+after the dragged element:
+42 - 69:
 
     44: select the actual elements as an array. that are not actually
     dragged.(all those whithout added class) Use the :not() pseudo class therefore.
@@ -52,3 +70,5 @@ we call event.preventDefault(), which enables it to receive drop events.
 
     65:   reduce() initial value = start at the Number NEGATIVE_INFINITY the nearly end of the border to the        next   element..
         at last return the element.
+
+The function loops through all elements within the drop zone, calculates their vertical position relative to the dragged element, and returns the closest element that should be placed after the dragged element.
