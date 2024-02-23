@@ -14,21 +14,25 @@ all elements are sortable individual by position.
 
 1 - 3: select the elements from the dom.
 
-4 - 9 : attach an eventlistener with an dragstart event to all draggable elements.
+4 - 9 : attach an Event Listener with an dragstart 
+event to all draggable elements.
 addClasslist of something ...
 
-10 - 15: attach second event to the draggable elements, an dragend. so we can drag from start - end.
+10 - 15: attach second event to the draggable elements, 
+an dragend. so we can drag from start - end.
 removeClasslist of something ...
 
-//The dragstart event listener adds the 'dragging' class to the element being dragged, visually indicating its selected state.
-The dragend event listener removes the 'dragging' class once the dragging operation is complete.//
+//The dragstart Event Listener adds the 'dragging' class to the element being dragged, visually indicating its selected state.
+The dragend Event Listener removes the 'dragging' class once the dragging operation is complete.//
 
 18 - 36: define the dropzone behaviour:
 attach an dragover event to all"targets" of the both dropzones.
 
-        The dragover event listener prevents the browser's default behavior, allowing the dragged element to be dropped within the drop zone.
+        The dragover Event Listener prevents the browser's default behavior, 
+        allowing the dragged element to be dropped within the drop zone.
 
-Inside the dragover event listener, the code calculates the position of the dragged element relative to the drop zone and inserts the dragged element accordingly:
+        Inside the dragover Event Listener, the code calculates the position of the dragged element 
+        relative to the drop zone and inserts the dragged element accordingly:
 
           24: call the function that return the element that is currently dragged
           with all the needed coordinates like y-position and target offset included.
@@ -39,6 +43,8 @@ Inside the dragover event listener, the code calculates the position of the drag
               24 returns nothing so the element is dropped at the end.
 
           32: elsewhise the element gets inserted befor the element that it is currently before.
+
+
 
 //The getCurrentDraggedItem function is used to
 determine the correct position for the
